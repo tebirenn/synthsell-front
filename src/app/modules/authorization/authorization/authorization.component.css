@@ -1,0 +1,38 @@
+.auth-wrapper {
+    min-height: 100vh;
+}
+
+.auth-from {
+    padding: 100px 80px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 28%;
+}
+
+.error-text {
+    font-size: 0.9em;
+}
+
+.auth-title {
+    font-size: 50px;
+}
+
+.auth-input {
+    height: 40px;
+    background-color: #f3f3f3;
+    border: 1px solid #bfbfbf;
+    outline: none;
+    border-radius: 5px;
+}
+
+.auth-btn {
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #dadada;
+}

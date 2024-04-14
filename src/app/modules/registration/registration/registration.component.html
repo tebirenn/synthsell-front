@@ -1,0 +1,97 @@
+<div class="auth-wrapper w-100 d-flex align-items-center justify-content-center">
+    <form [formGroup]="regForm" class="auth-from d-flex flex-column align-items-center" (submit)="register()">
+        <h1 class="auth-title fw-bold">SynthSell</h1>
+
+        <div class="d-flex flex-column w-100 mt-1">
+            <div class="d-flex flex-column w-100">
+                <label for="login">Имя пользователя</label>
+                <input [formControl]="regForm.controls['username']" id="login" type="text" class="auth-input px-2" />
+            </div>
+            <span
+                *ngIf="regForm.touched && regForm.controls['username'].invalid"
+                class="error-text text-danger-emphasis fw-semibold"
+                >Введите корректный логин
+            </span>
+        </div>
+        <div class="d-flex flex-column w-100 mt-1">
+            <div class="d-flex flex-column w-100">
+                <label for="email">Почта</label>
+                <input [formControl]="regForm.controls['email']" id="email" type="email" class="auth-input px-2" />
+            </div>
+            <span
+                *ngIf="regForm.touched && regForm.controls['username'].invalid"
+                class="error-text text-danger-emphasis fw-semibold"
+                >Введите корректную почту
+            </span>
+        </div>
+        <div class="d-flex flex-column w-100 mt-1">
+            <div class="d-flex flex-column w-100">
+                <label for="first_name">Имя</label>
+                <input
+                    [formControl]="regForm.controls['first_name']"
+                    id="first_name"
+                    type="text"
+                    class="auth-input px-2" />
+            </div>
+            <span
+                *ngIf="regForm.touched && regForm.controls['first_name'].invalid"
+                class="error-text text-danger-emphasis fw-semibold"
+                >Имя введена некорректно
+            </span>
+        </div>
+        <div class="d-flex flex-column w-100 mt-1">
+            <div class="d-flex flex-column w-100">
+                <label for="last_name">Фамилия</label>
+                <input
+                    [formControl]="regForm.controls['last_name']"
+                    id="last_name"
+                    type="text"
+                    class="auth-input px-2" />
+            </div>
+            <span
+                *ngIf="regForm.touched && regForm.controls['last_name'].invalid"
+                class="error-text text-danger-emphasis fw-semibold"
+                >Фамилия введена некорректно
+            </span>
+        </div>
+
+        <div class="d-flex flex-column w-100 mt-1">
+            <div class="mt-2 d-flex flex-column w-100">
+                <label for="password1">Пароль</label>
+                <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    [formControl]="regForm.controls['password1']"
+                    id="password1"
+                    class="auth-input px-2" />
+            </div>
+            <span
+                *ngIf="regForm.touched && regForm.controls['password1'].invalid"
+                class="error-text text-danger-emphasis fw-semibold"
+                >Пароль не может быть пустым
+            </span>
+        </div>
+        <div class="d-flex flex-column w-100 mt-1">
+            <div class="mt-2 d-flex flex-column w-100">
+                <label for="password2">Повторите пароль</label>
+                <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    [formControl]="regForm.controls['password2']"
+                    id="password2"
+                    class="auth-input px-2" />
+            </div>
+            <span *ngIf="regForm.hasError('passwordMismatch')" class="error-text text-danger-emphasis fw-semibold">
+                Пароли должны совпадать
+            </span>
+        </div>
+
+        <button type="submit" [disabled]="regForm.invalid" class="auth-btn btn btn-primary w-100 mt-4 fw-bold" disabled>
+            Создать аккаунт
+        </button>
+
+        <div class="hr mt-3"></div>
+
+        <div class="auth-links d-flex justify-content-between w-100 mt-2">
+            <span>Уже есть аккаунт? <a [routerLink]="['/signin']">Войти</a></span>
+        </div>
+    </form>
+</div>
