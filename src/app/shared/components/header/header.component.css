@@ -1,0 +1,21 @@
+.header {
+    background-color: #22352f;
+}
+
+.header > h1 a {
+    color: #dad2bf;
+    text-decoration: none;
+}
+
+.header-btns button {
+    background-color: transparent;
+    color: #dad2bf;
+    font-weight: bold;
+    border: none;
+}
+
+.new-ad-btn {
+    background-color: #dad2bf !important;
+    color: #22352f !important;
+    border-radius: 30px;
+}

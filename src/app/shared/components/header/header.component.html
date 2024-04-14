@@ -1,0 +1,21 @@
+<header class="header px-5 py-2 d-flex align-items-center justify-content-between">
+    <h1 class="fw-bold">
+        <a [routerLink]="['/']">SynthSell</a>
+    </h1>
+    <div class="header-btns d-flex gap-4">
+        <button class="d-flex align-items-center gap-1">
+            <i class="far fa-envelope"></i>
+            Сообщения
+        </button>
+        <button class="d-flex align-items-center gap-1">
+            <i class="far fa-heart"></i>
+            Избранные
+        </button>
+        <button class="d-flex align-items-center gap-1">
+            <i class="far fa-user"></i>
+            Профиль
+        </button>
+        <button class="new-ad-btn py-1 px-4">Подать объявление</button>
+        <button (click)="logout()" class="d-flex align-items-center gap-1">Выйти</button>
+    </div>
+</header>

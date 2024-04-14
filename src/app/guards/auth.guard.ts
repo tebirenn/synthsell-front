@@ -13,6 +13,7 @@ export class AuthGuard implements CanLoad {
     ) {}
 
     canLoad(): boolean {
+        console.log(this.authService.isAuthenticated);
         if (this.authService.isAuthenticated) {
             return true;
         }

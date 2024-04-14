@@ -55,6 +55,7 @@ export class AuthService {
                 localStorage.removeItem('user');
                 localStorage.removeItem('token');
                 this.currentToken = null;
+                this.currentUser = null;
                 this.isAuth.next(false);
                 this.ngZone.run(() => this.router.navigate(['signin']));
             }),
