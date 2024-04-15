@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { finalize, Observable, ReplaySubject, tap } from 'rxjs';
+import { Observable, ReplaySubject, tap } from 'rxjs';
 
 import { Nullable } from '@app/types/nullable.type';
 import { UsersService } from '@app/api/services/users.service';
@@ -49,17 +49,17 @@ export class AuthService {
         );
     }
 
-    logout(): Observable<unknown> {
-        return this.http.get(this.apiUrl + authEndpoints.logout()).pipe(
-            finalize(() => {
-                localStorage.removeItem('user');
-                localStorage.removeItem('token');
-                this.currentToken = null;
-                this.currentUser = null;
-                this.isAuth.next(false);
-                this.ngZone.run(() => this.router.navigate(['signin']));
-            }),
-        );
+    logout(): void {
+        // return this.http.get(this.apiUrl + authEndpoints.logout()).pipe(
+        //     finalize(() => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        this.currentToken = null;
+        this.currentUser = null;
+        this.isAuth.next(false);
+        this.ngZone.run(() => this.router.navigate(['signin']));
+        //     }),
+        // );
     }
 
     // checkToken(): Observable<unknown> {

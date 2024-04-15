@@ -1,0 +1,52 @@
+.search-container {
+    height: 80px;
+}
+
+.search-field-wrapper {
+    width: 70%;
+    height: 100%;
+    background-color: #F0F0F0;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.search-field-wrapper i {
+    width: 5%;
+    text-align: center;
+}
+.search-field-wrapper i::before {
+    font-size: 20px;
+}
+.search-field-wrapper input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 20px;
+    width: 95%;
+}
+
+.city-field-wrapper {
+    width: 20%;
+    height: 100%;
+    margin-left: 4px;
+    background-color: #F0F0F0;
+    font-size: 20px;
+}
+.search-field-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 5px 30px 5px 10px;
+    border: none; /* Убираем рамку */
+    background-color: transparent; /* Убираем фоновый цвет */
+}
+
+.search-btn {
+    background-color: #22352f;
+    border: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 10%;
+    height: 100%;
+    font-size: 20px;
+    color: #fff;
+}
