@@ -7,17 +7,17 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxsModule } from '@ngxs/store';
 import { AdsState } from '@app/store/state/ads.state';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
         MatIconModule,
-        NgxsModule.forRoot(
-            [AdsState],
-        ),
+        NgxsModule.forRoot([AdsState]),
     ],
     providers: [],
     bootstrap: [AppComponent],
