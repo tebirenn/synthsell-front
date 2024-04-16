@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@app/api/services/auth.service';
-import { Subscription, take } from 'rxjs';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -22,7 +21,7 @@ export class HeaderComponent implements OnInit {
         }
     }
 
-    logout(): Subscription {
-        return this.authService.logout().pipe(take(1)).subscribe();
+    logout(): void {
+        this.authService.logout();
     }
 }
