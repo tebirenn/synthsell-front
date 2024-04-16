@@ -50,16 +50,12 @@ export class AuthService {
     }
 
     logout(): void {
-        // return this.http.get(this.apiUrl + authEndpoints.logout()).pipe(
-        //     finalize(() => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
         this.currentToken = null;
         this.currentUser = null;
         this.isAuth.next(false);
         this.ngZone.run(() => this.router.navigate(['signin']));
-        //     }),
-        // );
     }
 
     // checkToken(): Observable<unknown> {
