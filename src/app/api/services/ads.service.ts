@@ -13,4 +13,12 @@ export class AdsService {
     getAllAds(): Observable<any[]> {
         return this.http.get<any[]>(this.apiUrl + adsEndpoints.getAll(), {});
     }
+
+    getAllCities(): Observable<any[]> {
+        return this.http.get<any[]>(this.apiUrl + adsEndpoints.getAllCities(), {});
+    }
+
+    getAllCategories(): Observable<any[]> {
+        return this.http.get<any[]>(this.apiUrl + adsEndpoints.getAllCategories(), {});
+    }
 }

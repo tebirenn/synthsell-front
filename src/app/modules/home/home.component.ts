@@ -3,10 +3,11 @@ import { AuthService } from '@app/api/services/auth.service';
 import { Nullable } from '@app/types/nullable.type';
 import { UserInterface } from '@app/interfaces/user.interface';
 import { Dispatch } from '@ngxs-labs/dispatch-decorator';
-import { GetAllAds } from '@app/store/actions/ads.actions';
+import { GetAllAds, GetAllCategories, GetAllCities } from '@app/store/actions/ads.actions';
 import { Select, Store } from '@ngxs/store';
 import { AdsState } from '@app/store/state/ads.state';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { environment } from '@env/environment';
 
 @Component({
     selector: 'app-home',
@@ -17,6 +18,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     @Select(AdsState.ads)
     ads$: Observable<any[]> | undefined;
 
+    @Select(AdsState.cities)
+    cities$: Observable<any[]> | undefined;
+
+    @Select(AdsState.categories)
+    categories$: Observable<any[]> | undefined;
+
+    apiUrl: string = environment.apiUrl;
     user: Nullable<UserInterface> | undefined;
     private unSubscriber$: Subject<void> = new Subject<void>();
 
@@ -28,16 +36,19 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.user = JSON.parse(userString);
         }
 
-        // this.getAllAds();
-        // // @ts-ignore
-        // this.ads$.pipe(takeUntil(this.unSubscriber$)).subscribe((value) => console.log(value));
         this.store.dispatch(new GetAllAds());
-        // @ts-ignore
-        this.ads$.subscribe(ads => console.log(ads));
+        this.store.dispatch(new GetAllCities());
+        this.store.dispatch(new GetAllCategories());
     }
 
     @Dispatch()
     getAllAds = (): GetAllAds => new GetAllAds();
+
+    @Dispatch()
+    getAllCities = (): GetAllCities => new GetAllCities();
+
+    @Dispatch()
+    getAllCategories = (): GetAllCategories => new GetAllCategories();
 
     ngOnDestroy(): void {
         this.unSubscriber$.next();
