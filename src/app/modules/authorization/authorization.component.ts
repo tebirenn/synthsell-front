@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { of, switchMap, take } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { AuthService } from '@app/api/services/auth.service';
     templateUrl: 'authorization.component.html',
     styleUrls: ['authorization.component.css'],
 })
-export class AuthorizationComponent {
+export class AuthorizationComponent implements OnInit {
     constructor(private authService: AuthService) {}
 
     showPassword = false;
