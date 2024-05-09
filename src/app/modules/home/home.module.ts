@@ -12,6 +12,6 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [HomeComponent],
-    imports: [CommonModule, RouterModule.forChild(routes), NgOptimizedImage]
+    imports: [CommonModule, RouterModule.forChild(routes), NgOptimizedImage],
 })
 export class HomeModule {}

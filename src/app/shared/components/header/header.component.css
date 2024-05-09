@@ -4,7 +4,7 @@
     max-height: 72px;
 }
 
-.header > h1 a {
+.header > h2 a {
     color: #dad2bf;
     text-decoration: none;
 }
@@ -20,4 +20,33 @@
     background-color: #dad2bf !important;
     color: #22352f !important;
     border-radius: 30px;
+}
+
+.profile-btn {
+    display: flex;
+    position: relative;
+}
+.user-menu {
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 15;
+}
+.user-menu--item {
+    width: 200px;
+    /* height: 20px; */
+    background-color: #fff;
+    transition: .4s;
+}
+.user-menu--item-hov:hover {
+    background-color: #d9d9d9;
+}
+.user-menu div.user-menu--item:first-child {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.logout-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }

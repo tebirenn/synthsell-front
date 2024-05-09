@@ -1,7 +1,7 @@
 <header class="header px-5 py-2 d-flex align-items-center justify-content-between">
-    <h1 class="fw-bold">
+    <h2 class="fw-bold">
         <a [routerLink]="['/']">SynthSell</a>
-    </h1>
+    </h2>
     <div class="header-btns d-flex gap-4">
         <button class="d-flex align-items-center gap-1">
             <i class="far fa-envelope"></i>
@@ -11,11 +11,34 @@
             <i class="far fa-heart"></i>
             Избранные
         </button>
-        <button class="d-flex align-items-center gap-1">
+        <button mat-button [matMenuTriggerFor]="userHeaderMenu" class="profile-btn d-flex align-items-center gap-1">
             <i class="far fa-user"></i>
             Профиль
         </button>
         <button class="new-ad-btn py-1 px-4">Подать объявление</button>
-        <button (click)="logout()" class="d-flex align-items-center gap-1">Выйти</button>
     </div>
 </header>
+
+<mat-menu #userHeaderMenu="matMenu" class="user-menu shadow py-1">
+    <div class="user-menu--item p-2 d-flex flex-row align-items-center">
+        <div class="me-3">
+            <i class="fa fa-user fs-3"></i>
+        </div>
+        <div>
+            <p class="p-0 m-0 fw-bold">{{ this.user.username }}</p>
+            <p class="m-0 p-0 fw-bold">id: {{ this.user.id }}</p>
+        </div>
+    </div>
+    <div
+        class="user-menu--item p-2 d-flex gap-2 align-items-center cursor-pointer user-menu--item-hov"
+        [routerLink]="['/profile']">
+        <i class="fa fa-user"></i>
+        Профиль
+    </div>
+    <div
+        (click)="logout()"
+        class="user-menu--item p-2 d-flex gap-2 align-items-center cursor-pointer user-menu--item-hov">
+        <i class="fa fa-arrow-right"></i>
+        Выйти
+    </div>
+</mat-menu>

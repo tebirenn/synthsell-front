@@ -28,10 +28,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     user: Nullable<UserInterface> | undefined;
     private unSubscriber$: Subject<void> = new Subject<void>();
 
-    constructor(public authService: AuthService, private store: Store) {}
+    constructor(
+        public authService: AuthService,
+        private store: Store,
+    ) {}
 
     ngOnInit() {
         const userString = localStorage.getItem('user');
+        console.log(this.authService.isAuthenticated);
+        console.log(userString);
         if (this.authService.isAuthenticated && userString) {
             this.user = JSON.parse(userString);
         }

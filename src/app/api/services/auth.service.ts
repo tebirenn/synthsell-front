@@ -43,8 +43,9 @@ export class AuthService {
                 this.currentToken = value.access;
                 localStorage.setItem('token', value.access);
                 this.isAuth.next(true);
-                this.getUserAndSaveInLocalStorage(value.access);
-                this.ngZone.run(() => this.router.navigate(['']));
+                this.getUserAndSaveInLocalStorage(value.access).then(() => {
+                    this.ngZone.run(() => this.router.navigate(['']));
+                });
             }),
         );
     }
@@ -83,10 +84,13 @@ export class AuthService {
         return this.currentToken;
     }
 
-    private getUserAndSaveInLocalStorage(accessToken: string) {
-        this.usersService.getUserByToken(accessToken).subscribe((user: UserInterface) => {
-            this.currentUser = user;
-            localStorage.setItem('user', JSON.stringify(user));
+    private getUserAndSaveInLocalStorage(accessToken: string): Promise<void> {
+        return new Promise<void>((resolve) => {
+            this.usersService.getUserByToken(accessToken).subscribe((user: UserInterface) => {
+                this.currentUser = user;
+                localStorage.setItem('user', JSON.stringify(user));
+                resolve();
+            });
         });
     }
 

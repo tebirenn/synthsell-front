@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     {
         path: '',
-        // canLoad: [AuthGuard],
         loadChildren: () => import('@app/modules/main/main.module').then((m) => m.MainModule),
     },
     {

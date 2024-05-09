@@ -9,10 +9,7 @@
             Выберите город
         </label>
         <select id="city">
-            <option
-                *ngFor="let city of (this.cities$ | async)"
-                value="{{ city.id }}"
-            >
+            <option *ngFor="let city of this.cities$ | async" value="{{ city.id }}">
                 {{ city.name }}
             </option>
         </select>
@@ -51,12 +48,9 @@
 
 <section class="ads-list-wrapper px-5 mt-5 pb-4">
     <h1 class="text-center w-100 mb-5">Топ объявления</h1>
-    <div
-        *ngFor="let ad of (ads$ | async)"
-        class="ads-list--item mt-3"
-    >
+    <div *ngFor="let ad of ads$ | async" class="ads-list--item mt-3">
         <span class="ads-list--image">
-            <img *ngIf="ad.image" src="{{ this.apiUrl + ad.image.slice(1) }}" alt="ad_photo">
+            <img *ngIf="ad.image" src="{{ this.apiUrl + ad.image.slice(1) }}" alt="ad_photo" />
         </span>
         <div class="ads-list--info p-3">
             <div class="d-flex justify-content-between">
