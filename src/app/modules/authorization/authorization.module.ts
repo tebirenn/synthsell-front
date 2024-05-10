@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AuthorizationComponent } from '@app/modules/authorization/authorization.component';
+import { AuthorizationComponent } from '@app/modules/authorization/authorization/authorization.component';
 import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [

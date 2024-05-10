@@ -1,0 +1,45 @@
+<section class="add-create-container px-5 mt-5">
+    <h2 class="fw-bolder">Создать объявление</h2>
+    <form [formGroup]="adCreateForm" class="ad-create-form" (submit)="adCreate()">
+        <div class="add-create--item">
+            <h3>Опишите в подробностях</h3>
+            <fieldset class="add-create-form-fieldset">
+                <label for="title">Укажите название*</label>
+                <input [formControl]="adCreateForm.controls['title']" type="text" id="title" />
+            </fieldset>
+            <fieldset class="add-create-form-fieldset">
+                <label for="category">Категория*</label>
+                <select id="category" [formControl]="adCreateForm.controls['category']">
+                    <option *ngFor="let category of categories$ | async" value="{{ category.id }}">
+                        {{ category.name }}
+                    </option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="add-create--item">
+            <fieldset class="add-create-form-fieldset">
+                <label for="image">Выберите изображение*</label>
+                <input type="file" id="image" (change)="onFileSelected($event)" />
+            </fieldset>
+        </div>
+        <div class="add-create--item">
+            <fieldset class="add-create-form-fieldset">
+                <label for="description">Описание*</label>
+                <textarea [formControl]="adCreateForm.controls['description']" id="description"></textarea>
+            </fieldset>
+        </div>
+        <div class="add-create--item">
+            <fieldset class="add-create-form-fieldset">
+                <label for="city">Местоположение*</label>
+                <select id="city" [formControl]="adCreateForm.controls['city']">
+                    <option *ngFor="let city of cities$ | async" value="{{ city.id }}">
+                        {{ city.name }}
+                    </option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="add-create--item">
+            <button type="submit" [disabled]="adCreateForm.invalid">Опубликовать</button>
+        </div>
+    </form>
+</section>

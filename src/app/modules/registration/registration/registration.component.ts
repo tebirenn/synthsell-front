@@ -28,7 +28,6 @@ export class RegistrationComponent {
     );
 
     register(): void {
-        console.log('done');
         if (this.regForm.invalid) {
             return;
         }
@@ -44,7 +43,7 @@ export class RegistrationComponent {
         });
     }
 
-    registerAction(dto: UserCreateInterface): any {
+    registerAction(dto: UserCreateInterface): void {
         this.usersService
             .create(dto)
             .pipe(

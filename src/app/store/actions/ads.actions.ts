@@ -1,3 +1,5 @@
+import { AdCreateInterface } from '@app/interfaces/ad.interface';
+
 export class GetAllAds {
     static readonly type = '[Ads] GetAllAds';
 
@@ -14,4 +16,10 @@ export class GetAllCategories {
     static readonly type = '[Ads] GetAllCategories';
 
     constructor() {}
+}
+
+export class AdCreate {
+    static readonly type = '[Ads] AdCreate';
+
+    constructor(public dto: AdCreateInterface) {}
 }

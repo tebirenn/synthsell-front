@@ -84,6 +84,10 @@ export class AuthService {
         return this.currentToken;
     }
 
+    get user(): Nullable<UserInterface> {
+        return this.currentUser;
+    }
+
     private getUserAndSaveInLocalStorage(accessToken: string): Promise<void> {
         return new Promise<void>((resolve) => {
             this.usersService.getUserByToken(accessToken).subscribe((user: UserInterface) => {
@@ -92,9 +96,5 @@ export class AuthService {
                 resolve();
             });
         });
-    }
-
-    get user(): Nullable<UserInterface> {
-        return this.currentUser;
     }
 }

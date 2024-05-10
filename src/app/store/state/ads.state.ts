@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { AdsService } from '@app/api/services/ads.service';
-import { GetAllAds, GetAllCategories, GetAllCities } from '@app/store/actions/ads.actions';
+import { AdCreate, GetAllAds, GetAllCategories, GetAllCities } from '@app/store/actions/ads.actions';
 import { Observable, tap } from 'rxjs';
 
 export interface AdsStateInterface {
@@ -62,5 +62,10 @@ export class AdsState {
                 ctx.patchState({ categories: value });
             }),
         );
+    }
+
+    @Action(AdCreate)
+    adCreate(ctx: StateContext<AdsStateInterface>, action: AdCreate): Observable<any> {
+        return this.adsService.createAd(action.dto);
     }
 }

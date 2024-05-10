@@ -35,8 +35,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         const userString = localStorage.getItem('user');
-        console.log(this.authService.isAuthenticated);
-        console.log(userString);
         if (this.authService.isAuthenticated && userString) {
             this.user = JSON.parse(userString);
         }
